@@ -52,7 +52,7 @@ jobs:
             rm -rf harbor
             docker build -t harbor.jototech.cn/harbor/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push alanpeharbor.jototech.cn/harborng/harbor_images_aarch64:$Harbor_Git_Tag
+            docker push harbor.jototech.cn/harbor/harbor_images_aarch64:$Harbor_Git_Tag
 workflows:
   version: 2
   build-for-branches:
