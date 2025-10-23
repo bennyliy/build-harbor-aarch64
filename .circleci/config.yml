@@ -1,7 +1,7 @@
 jobs:
   build-branches:
     environment:
-      Harbor_Git_Tag: 'v2.13.0'
+      Harbor_Git_Tag: 'v2.14.0'
     machine: true
     resource_class: arm.medium
     steps:
@@ -23,12 +23,12 @@ jobs:
             chmod +x harbor/prepare harbor/install.sh
             tar zcf harbor-offline-installer-aarch64.tgz harbor
             rm -rf harbor
-            docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
+            docker build -t harbor.jototech.cn/harbor/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
+            docker push  harbor.jototech.cn/harbor/harbor_images_aarch64:$Harbor_Git_Tag
   build-tags:
     environment:
-      Harbor_Git_Tag: 'v2.13.0'
+      Harbor_Git_Tag: 'v2.14.0'
     machine: true
     resource_class: arm.medium
     steps:
@@ -50,9 +50,9 @@ jobs:
             chmod +x harbor/prepare harbor/install.sh
             tar zcf harbor-offline-installer-aarch64.tgz harbor
             rm -rf harbor
-            docker build -t alanpeng/harbor_images_aarch64:$Harbor_Git_Tag .
+            docker build -t harbor.jototech.cn/harbor/harbor_images_aarch64:$Harbor_Git_Tag .
             docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-            docker push alanpeng/harbor_images_aarch64:$Harbor_Git_Tag
+            docker push alanpeharbor.jototech.cn/harborng/harbor_images_aarch64:$Harbor_Git_Tag
 workflows:
   version: 2
   build-for-branches:
