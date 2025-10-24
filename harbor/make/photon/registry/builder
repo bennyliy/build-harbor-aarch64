@@ -8,6 +8,7 @@ if [ -z $1 ]; then
 fi
 
 VERSION="$1"
+GOBUILDIMAGE=golang:1.23.8
 
 set -e
 
@@ -29,7 +30,7 @@ cd $cur
 
 echo 'build the registry binary ...'
 cp Dockerfile.binary $TEMP
-docker build -f $TEMP/Dockerfile.binary --build-arg golang_image=golang:1.23.8 -t registry-golang $TEMP
+docker build -f $TEMP/Dockerfile.binary --build-arg golang_image=$GOBUILDIMAGE -t registry-golang $TEMP
 
 echo 'copy the registry binary to local...'
 ID=$(docker create registry-golang)
