@@ -16,19 +16,25 @@ cp -f ../harbor/make/photon/registry/builder src/github.com/goharbor/harbor/make
 cp -f ../harbor/make/photon/registry/redis.patch src/github.com/goharbor/harbor/make/photon/registry/
 cp -f ../harbor/src/portal/src/app/shared/components/about-dialog/about-dialog.component.html src/github.com/goharbor/harbor/src/portal/src/app/shared/components/about-dialog/
 
-make compile_core
+echo "1- will build harbor version: $(cat src/github.com/goharbor/harbor/VERSION)"
+make compile
 
 # compile redis
+echo "2- Compile redis for arm architecture:"
 make compile_redis
 
 # Prepare to build arm architecture image data:
+echo "3- Prepare to build arm architecture image data:"
 make prepare_arm_data
 
 # Replace build arm image parameters：
+echo "4- Replace build arm image parameters:"
 make pre_update
 
 # Compile harbor components:
+echo "5- Compile harbor components:"
 make compile COMPILETAG=compile_golangimage
 
 # Build harbor arm image:
+echo "6- Build harbor arm image:"
 make build GOBUILDTAGS="include_oss include_gcs" BUILDBIN=true TRIVYFLAG=true GEN_TLS=true PULL_BASE_FROM_DOCKERHUB=false
