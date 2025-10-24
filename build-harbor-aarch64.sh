@@ -12,7 +12,12 @@ git clone --branch ${GIT_BRANCH} https://github.com/goharbor/harbor.git src/gith
 
 echo "1 - will build harbor version: $(cat src/github.com/goharbor/harbor/VERSION)"
 cd src/github.com/goharbor/harbor
+echo will make compile_core
 make compile_core
+echo will make compile_jobservice
+make compile_jobservice
+echo will mkake compile_registryctl
+make compile_registryctl
 cd ../../../..
 
 cp -f ../harbor/Makefile src/github.com/goharbor/harbor/
