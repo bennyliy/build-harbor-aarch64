@@ -30,6 +30,7 @@ cd $cur
 
 echo 'build the registry binary ...'
 cp Dockerfile.binary $TEMP
+echo "build -f $TEMP/Dockerfile.binary --build-arg golang_image=$GOBUILDIMAGE -t registry-golang $TEMP"
 docker build -f $TEMP/Dockerfile.binary --build-arg golang_image=$GOBUILDIMAGE -t registry-golang $TEMP
 
 echo 'copy the registry binary to local...'
