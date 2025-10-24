@@ -16,6 +16,8 @@ cp -f ../harbor/make/photon/registry/builder src/github.com/goharbor/harbor/make
 cp -f ../harbor/make/photon/registry/redis.patch src/github.com/goharbor/harbor/make/photon/registry/
 cp -f ../harbor/src/portal/src/app/shared/components/about-dialog/about-dialog.component.html src/github.com/goharbor/harbor/src/portal/src/app/shared/components/about-dialog/
 
+make compile
+
 # compile redis
 make compile_redis
 
