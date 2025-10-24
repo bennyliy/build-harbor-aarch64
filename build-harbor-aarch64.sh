@@ -22,8 +22,8 @@ cp -f ../harbor/make/photon/registry/builder src/github.com/goharbor/harbor/make
 cp -f ../harbor/make/photon/registry/redis.patch src/github.com/goharbor/harbor/make/photon/registry/
 cp -f ../harbor/src/portal/src/app/shared/components/about-dialog/about-dialog.component.html src/github.com/goharbor/harbor/src/portal/src/app/shared/components/about-dialog/
 
-echo "1 - will build harbor version: $(cat src/github.com/goharbor/harbor/VERSION)"
-make compile
+# echo "1 - will build harbor version: $(cat src/github.com/goharbor/harbor/VERSION)"
+# make compile
 
 # compile redis
 echo "2 - Compile redis for arm architecture:"
